@@ -1,58 +1,54 @@
-# Security-Labs
-Professional technical portfolio containing cybersecurity labs, vulnerability assessments, and security projects.
 # 🛡️ Security-Labs
 
-Bem-vindo ao meu laboratório de Cibersegurança. Este repositório centraliza o meu portefólio técnico, documentando desafios de CTF, auditorias de rede e testes de intrusão.
+Welcome to my Cybersecurity laboratory. This repository centralizes my technical portfolio, documenting CTF challenges, network audits, and penetration testing projects.
 
 ---
 
-## ⚖️ Disclaimer / Aviso de Responsabilidade
-**Atenção:** Este repositório, incluindo todos os seus subdiretórios e projetos associados, foi criado e é mantido estritamente para **fins educacionais e académicos**.
+## ⚖️ Disclaimer / Terms of Responsibility
+**Attention:** This repository, including all its subdirectories and associated projects, is created and maintained strictly for **educational and academic purposes**.
 
-* **Ambiente Controlado:** Todas as atividades e demonstrações de vulnerabilidades foram realizadas exclusivamente em **ambientes de laboratório controlados**.
-* **Uso Ético:** Qualquer tentativa de utilizar estas técnicas para fins maldosos ou sem autorização é da **inteira responsabilidade do utilizador**.
-* **Isenção:** O autor não se responsabiliza pelo uso indevido do conteúdo aqui apresentado.
-
----
-
-## 📂 Organização do Portefólio
-
-Cada diretório abaixo representa um projeto isolado e contém a seguinte estrutura:
-1.  `README.md`: Documentação detalhada da metodologia, ferramentas e resultados.
-2.  `screenshots/`: Capturas de ecrã que comprovam a execução técnica (PoC).
-3.  `files/`: Relatórios em PDF ou ficheiros de configuração (quando aplicável).
+* **Controlled Environment:** All activities and vulnerability demonstrations were conducted exclusively within **controlled laboratory environments**.
+* **Ethical Use:** Any attempt to use these techniques for malicious purposes or without prior authorization is the **sole responsibility of the user**.
+* **Liability:** The author assumes no responsibility for the misuse of the content presented herein.
 
 ---
 
-## 🛠️ Stack Tecnológica & Toolbox de Segurança
+## 📂 Portfolio Organization
 
-O desenvolvimento destes laboratórios envolve um ecossistema de ferramentas avançadas, categorizadas conforme as fases de um Pentest (PTES):
+Each directory below represents an isolated project and follows this structure:
+1. `README.md`: Detailed documentation of methodology, tools, and results.
+2. `screenshots/`: Screen captures providing technical proof (PoC).
+3. `files/`: PDF reports or configuration files (where applicable).
 
-### 💻 Ambientes e Sistemas
-* **Sistemas Ofensivos:** Kali Linux, Parrot Security OS.
-* **Sistemas Alvo (Vulnerable Labs):** Metasploitable 2/3, Windows Server (2008/2012/2019), Windows XP/7/10 (Legados), máquinas HTB e TryHackMe.
-* **Virtualização & Cloud:** VMware Workstation Pro, VirtualBox, Proxmox e Docker (para microserviços vulneráveis).
+---
 
-### 🔍 Reconhecimento e Enumeração
+## 🛠️ Tech Stack & Security Toolbox
+
+The development of these labs involves an ecosystem of advanced tools, categorized according to the Penetration Testing Execution Standard (PTES) phases:
+
+### 💻 Environments and Systems
+* **Offensive Systems:** Kali Linux, Parrot Security OS.
+* **Target Systems (Vulnerable Labs):** Metasploitable 2/3, Windows Server (2008/2012/2019), Windows XP/7/10 (Legacy), HTB, and TryHackMe machines.
+* **Virtualization & Cloud:** VMware Workstation Pro, VirtualBox, Proxmox, and Docker (for vulnerable microservices).
+
+### 🔍 Reconnaissance and Enumeration
 * **Network Scanning:** `Nmap`, `Masscan`, `Netdiscover`.
 * **Web Enumeration:** `Dirsearch`, `Gobuster`, `FFUF`, `Nikto`.
 * **OSINT:** `TheHarvester`, `Maltego`, `Shodan`.
 * **SMB/AD:** `Enum4linux`, `Smbmap`, `CrackMapExec`.
 
-### 🛡️ Análise de Vulnerabilidades e Exploração
+### 🛡️ Vulnerability Analysis and Exploitation
 * **Web Proxy/DAST:** `Burp Suite Professional`, `OWASP ZAP`.
 * **Exploitation Frameworks:** `Metasploit Framework (MSF)`, `Searchsploit`.
 * **Database Hacking:** `SQLMap`.
 * **Network Sniffing:** `Wireshark`, `Tcpdump`, `Bettercap`.
 
-### 🔑 Gestão de Credenciais e Cracking
+### 🔑 Credential Management and Cracking
 * **Offline Cracking:** `Hashcat` (GPU accelerated), `John the Ripper`.
 * **Online Brute Force:** `Medusa`, `Hydra`.
 * **Post-Exploitation:** `Mimikatz`, `LinPEAS/WinPEAS` (Privilege Escalation scripts).
 
-### 📂 Forense e Análise de Ficheiros
-* **Metadados:** `ExifTool`.
-* **Análise de Binários:** `Strings`, `Binwalk`, `Ghidra` (Reverse Engineering).
+### 📂 Forensics and File Analysis
+* **Metadata:** `ExifTool`.
+* **Binary Analysis:** `Strings`, `Binwalk`, `Ghidra` (Reverse Engineering).
 * **Steganography:** `Steghide`.
-
----

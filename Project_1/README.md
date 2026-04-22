@@ -14,48 +14,73 @@ This project documents the resolution of a practical cybersecurity assessment fo
 An analysis was conducted on the `hackTHEtask` repository to extract critical information from a protected ZIP file.
 
 ### Methodology and Tools:
-- **Enumeration:** Listed internal files (Blackbeard, Captain Hook, Captain Kidd, etc.) to identify potential targets.
-- **Zip2John:** Converted the ZIP file encryption into a crackable hash format.
-- **John the Ripper:** Executed a dictionary attack using the `rockyou.txt` wordlist.
+- **Enumeration:** Listed internal files to identify potential targets.
+- **Zip2John & John the Ripper:** Converted the ZIP to a hash and executed a dictionary attack using `rockyou.txt`.
   - **Password Found:** `ilove2shop`
 
+![ZIP Cracking Proof](screenshots/zip2john_cracking.jpg)
+
 ### Decrypted Hashes (Hashcat):
-| File | Algorithm | Hash Fragment | Decrypted Password |
-| :--- | :--- | :--- | :--- |
-| `Blackbeard.txt` | MD5 | `ecbf92...a3d3` | **maximillian** |
-| `Captain Kidd.txt` | SHA2-256 | `f97598...2f85` | **marquese** |
-| `Captain Hook.txt` | SHA2-512 | `eabb2c...c11` | **lilmisssunshine** |
-| `Wavebreaker.txt` | SHA1 | `7005bc...4099` | **me&him** |
-| `just_look_here.docx`| MS Office 2013 | - | **briliant** |
+Using **Hashcat**, I decrypted the passwords for the found files and used **Office2John** for the protected document.
+
+![Hashcat Results](screenshots/hashcat_cracking.jpg)
+![Office Cracking](screenshots/office_cracking.jpg)
+
+| File | Algorithm | Decrypted Password |
+| :--- | :--- | :--- |
+| `Blackbeard.txt` | MD5 | **maximillian** |
+| `Captain Kidd.txt` | SHA2-256 | **marquese** |
+| `Captain Hook.txt` | SHA2-512 | **lilmisssunshine** |
+| `Wavebreaker.txt` | SHA1 | **me&him** |
+| `just_look_here.docx`| MS Office 2013 | **briliant** |
 
 ---
 
 ## 🛡️ Part 2: Technical Pentest (VM `m00-dl3`)
 
-A technical audit was performed on a vulnerable machine to identify critical infrastructure flaws in a simulated network.
+A technical audit was performed on a vulnerable machine to identify critical infrastructure flaws.
 
 ### 🔍 Reconnaissance Phase:
-- **Target IP:** `192.168.1.222` (VMware environment).
-- **OS:** Windows XP SP2/SP3 (Legacy and highly vulnerable system).
-- **Critical Services:** Apache 2.4.9, MySQL 5.x, and SMB (ports 139/445).
+Using `nmap` and `netdiscover`, I identified the target and its exposed services.
+- **Target IP:** `192.168.1.222`
+- **OS:** Windows XP SP2/SP3 (Legacy system).
+
+![Nmap Scan](screenshots/nmap_scan.jpg)
 
 ### 💣 Identified Attack Vectors:
-1. **SMB Misconfiguration:** The `disknet` and `SharedDocs` shares allowed anonymous Read/Write access.
-   - **PoC (Proof of Concept):** Successfully uploaded a `malware.txt` file using `smbclient` without authentication.
-2. **Brute Force:** Identified root user credentials using the **Medusa** tool.
 
-### 💡 Mitigation Recommendations:
+#### 1. SMB Misconfiguration
+The `disknet` share allowed anonymous Read/Write access. I demonstrated this by uploading a test file.
+- **PoC:** `smbclient //192.168.1.222/disknet`
+
+![SMB PoC](screenshots/smb_poc_upload.jpg)
+
+#### 2. Privilege Escalation
+Using **Medusa**, I identified root user credentials via brute-force, gaining full control over the target.
+
+![Root Access Found](screenshots/privilege_escalation_root.jpg)
+
+---
+
+## 💡 Mitigation & Risk Analysis
+The exposure of legacy services like SMBv1 poses a high risk, including potential Ransomware deployment.
+
+![Risk Analysis](screenshots/risk_impact.jpg)
+
+### Recommendations:
 - **Disable SMBv1:** Immediate block of ports 139 and 445.
-- **Isolation (Air-Gap):** Place legacy systems in isolated VLANs with strict firewall rules.
-- **OS Upgrade:** Migrate to Windows 10/11 or a supported Linux LTS distribution due to the EOL (End of Life) status of Windows XP.
+- **Isolation:** Place legacy systems in isolated VLANs.
+- **Hardening:** Implement strict NTFS permissions and monitor for unauthorized file creation.
+
+![Mitigation Plan](screenshots/mitigation_report1.jpg)
 
 ---
 
 ## 🔧 Tools Applied
-* **Systems:** Kali Linux (Attacker machine).
+* **Systems:** Kali Linux.
 * **Reconnaissance:** Nmap, Netdiscover.
 * **Cracking:** John the Ripper, Hashcat, Medusa.
-* **Analysis:** ExifTool, Smbclient, LibreOffice.
+* **Analysis:** ExifTool, Smbclient.
 
 ---
-**Note:** Visual evidence for each step is available in the `screenshots/` directory of this project.
+**Note:** All technical steps were performed in a controlled laboratory environment for educational purposes.

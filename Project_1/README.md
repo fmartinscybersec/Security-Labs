@@ -11,7 +11,7 @@ This project documents the resolution of a practical cybersecurity assessment fo
 
 ## 🛠️ Part 1: Forensic Analysis & Cracking (`try_open_me.zip`)
 
-An analysis was conducted on the `hackTHEtask` repository to extract critical information from a protected ZIP file.
+An analysis was conducted on the current repository to extract critical information from a protected ZIP file.
 
 ### Methodology and Tools:
 - **Enumeration:** Listed internal files to identify potential targets.

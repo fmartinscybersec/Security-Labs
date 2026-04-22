@@ -22,33 +22,41 @@ Each directory below represents an isolated project and follows this structure:
 
 ---
 
-## 🛠️ Tech Stack & Security Toolbox
+### 🛠️ Tech Stack & Security Toolbox
 
-The development of these labs involves an ecosystem of advanced tools, categorized according to the Penetration Testing Execution Standard (PTES) phases:
+The development of these labs involves an ecosystem of advanced tools, categorized according to the **Penetration Testing Execution Standard (PTES)** phases and modern security workflows:
 
-### 💻 Environments and Systems
-* **Offensive Systems:** Kali Linux, Parrot Security OS.
-* **Target Systems (Vulnerable Labs):** Metasploitable 2/3, Windows Server (2008/2012/2019), Windows XP/7/10 (Legacy), HTB, and TryHackMe machines.
-* **Virtualization & Cloud:** VMware Workstation Pro, VirtualBox, Proxmox, and Docker (for vulnerable microservices).
+#### 💻 Lab Infrastructure & OS
+* **Offensive Platforms:** Kali Linux (Rolling Release), Parrot Security OS.
+* **Target Environments:** Metasploitable 2/3, Windows Server Active Directory Labs, TryHackMe/HackTheBox instances, and Docker-based vulnerable microservices.
+* **Virtualization & Hypervisors:** VMware Workstation Pro, VirtualBox, Proxmox VE.
 
-### 🔍 Reconnaissance and Enumeration
-* **Network Scanning:** `Nmap`, `Masscan`, `Netdiscover`.
-* **Web Enumeration:** `Dirsearch`, `Gobuster`, `FFUF`, `Nikto`.
-* **OSINT:** `TheHarvester`, `Maltego`, `Shodan`.
-* **SMB/AD:** `Enum4linux`, `Smbmap`, `CrackMapExec`.
+#### 🔍 Information Gathering & Enumeration
+* **Network Discovery:** `Nmap`, `Masscan`, `Netdiscover`, `Bettercap`.
+* **Web Fingerprinting:** `WhatWeb`, `Wappalyzer (CLI)`, `BuiltWith`.
+* **Directory & Asset Fuzzing:** `FFUF`, `Gobuster`, `Dirsearch`, `Dirb`.
+* **OSINT:** `Shodan`, `TheHarvester`, `Maltego`, `SpiderFoot`.
 
-### 🛡️ Vulnerability Analysis and Exploitation
+#### 🏛️ Infrastructure & Directory Services (SMB/AD)
+* **SMB/RPC Enumeration:** `Enum4linux`, `Enum4linux-ng`, `Smbclient`, `Smbmap`.
+* **AD Assessment:** `CrackMapExec` (Swiss-army knife for AD), `BloodHound` (Path analysis), `Impacket Suite`.
+
+#### 🛡️ Vulnerability Analysis & Web Auditing
 * **Web Proxy/DAST:** `Burp Suite Professional`, `OWASP ZAP`.
-* **Exploitation Frameworks:** `Metasploit Framework (MSF)`, `Searchsploit`.
-* **Database Hacking:** `SQLMap`.
-* **Network Sniffing:** `Wireshark`, `Tcpdump`, `Bettercap`.
+* **Vulnerability Scanning:** `Nikto` (Web Misconfigurations), `Nuclei` (Template-based scanning), `Nessus`.
+* **Database Auditing:** `SQLMap` (SQLi detection and exploitation).
 
-### 🔑 Credential Management and Cracking
+#### 🚀 Exploitation & Post-Exploitation
+* **Exploitation Frameworks:** `Metasploit Framework (MSF)`, `Searchsploit` (Exploit-DB).
+* **Traffic Analysis & Sniffing:** `Wireshark`, `Tcpdump`, `Tshark`.
+* **Privilege Escalation:** `LinPEAS`, `WinPEAS`, `BeRoot`, `PowerUp`.
+* **Post-Exploitation Modules:** `Mimikatz` (In-memory credential dumping), `Rubeus` (Kerberos-based attacks).
+
+#### 🔑 Credential Access & Identity
 * **Offline Cracking:** `Hashcat` (GPU accelerated), `John the Ripper`.
-* **Online Brute Force:** `Medusa`, `Hydra`.
-* **Post-Exploitation:** `Mimikatz`, `LinPEAS/WinPEAS` (Privilege Escalation scripts).
+* **Online Brute Force:** `Hydra`, `Medusa`, `Patator`.
 
-### 📂 Forensics and File Analysis
-* **Metadata:** `ExifTool`.
-* **Binary Analysis:** `Strings`, `Binwalk`, `Ghidra` (Reverse Engineering).
-* **Steganography:** `Steghide`.
+#### 📂 Digital Forensics & Reverse Engineering (DFIR)
+* **Static Analysis:** `Strings`, `ExifTool`, `Binwalk`.
+* **Reverse Engineering:** `Ghidra`, `Radare2`, `IDA Free`.
+* **Steganography:** `Steghide`, `Zsteg`, `StegSolve`.
